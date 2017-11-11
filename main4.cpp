@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
 	char str1[256], str2[256];
-	int n = 0, m = 0, element = 1, oldn = 0;
+	int n = 0, m = 0, element = 1, endi = 0;
 	bool fl1 = true, fl2 = false, fl3 = true, fl4 = true, fl5 = true;
 	cout << "Vvedite razmer matritsy" << endl;
 	cin >> str1 >> str2;
@@ -35,7 +35,7 @@ int main(){
 		for (int j = 0; j < m; j++) a[i][j] = 0;
 	}
 		
-	for (int i = 0; i < n / 2; i++){
+	for (int i = 0; i < n; i++){
 		for (int j = i; j < m - i; j++){
 			a[i][j] = element;
 			element++;
@@ -52,9 +52,10 @@ int main(){
 			a[j][i] = element;
 			element++;
 		}
-		
+		endi = i;
 	}
-	if ((n == m) && (n % 2 != 0)) a[n / 2 + 1][n / 2 + 1] = element;
+	endi++;
+	
 	for (int i = 0; i < n; i++){
 		for (int j = 0; j < m; j++){
 			cout << a[i][j] << " ";
